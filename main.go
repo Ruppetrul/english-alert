@@ -14,7 +14,9 @@ import (
 const appTitle = "English ALERT"
 
 func main() {
-	handleArguments()
+	if 1 != len(os.Args) {
+		handleArguments()
+	}
 
 	dictPath := filepath.Join(filepath.Dir(os.Args[0]), "dictionary.json")
 
@@ -58,11 +60,6 @@ func main() {
 }
 
 func handleArguments() {
-	// Run main program
-	if 1 == len(os.Args) {
-		return
-	}
-
 	if len(os.Args) > 2 {
 		fmt.Println("Too many arguments")
 		os.Exit(1)
